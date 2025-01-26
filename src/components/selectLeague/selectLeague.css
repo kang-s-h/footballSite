@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "Danjo-bold-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Danjo-bold-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.imgSize {
+  width: 300px;
+  height: 200px;
+  margin: 100px 100px 50px 100px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 효과 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.imgSize:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+  margin: 50px;
+  font-size: 50px;
+  font-weight: bolder;
+  padding: 100px 0px 0px 50px;
+  font-family: "Danjo-bold-Regular";
+}
