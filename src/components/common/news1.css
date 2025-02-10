@@ -1,0 +1,73 @@
+.news {
+  text-align: center;
+}
+
+.news_container {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-self: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 5% 4% 2% 4%;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px; /* 둥근 모서리 추가 (선택 사항) */
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+.news_container_box {
+  border-radius: 40px 40px 0px 0px;
+  width: calc(30%);
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.news_container_box-img {
+  width: 100%;
+  border-radius: 40px 40px 0px 0px;
+}
+
+.news_container_box-headline {
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.news_container_box-title {
+  background-color: rgb(243, 243, 243);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.news_container_box-title-headline {
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.news_container_box:hover .selectLeague_news_container_box-title {
+  background-color: rgb(229, 229, 230);
+  cursor: pointer;
+}
+
+.news_container-button {
+  font-size: xx-large;
+  font-weight: bolder;
+  height: 80px;
+  width: 80px;
+  border-radius: 50px;
+  line-height: 80px;
+  text-align: center;
+  background-color: rgb(243, 243, 243);
+}
+
+.news_container-button:hover {
+  background-color: rgb(229, 229, 230);
+  cursor: pointer;
+}

@@ -1,0 +1,38 @@
+.squad_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.squad_container_card {
+  border: 1px solid rgb(226, 226, 226);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  padding: 20px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.squad_container_card div {
+  margin-top: 5px;
+}
+
+.squad_container_card-img {
+  border: 5px solid rgb(214, 214, 214);
+  border-radius: 160px;
+}
+
+.squad_container_card-name {
+  font-size: large;
+  font-weight: bold;
+}
+
+.squad_container_card-number {
+  font-weight: bolder;
+}

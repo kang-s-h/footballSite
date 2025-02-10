@@ -1,75 +1,57 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./leaguesPage.css";
-import { getStandings } from "../../apis/league";
+import Overview from "./components/Overview";
+import Standings from "./components/Standings";
+import Fixtures from "./components/Fixtures";
+import Statistics from "./components/Statistics";
 import { useEffect, useState } from "react";
+import { dataStore } from "../../store/dataStore";
+import News1 from "../common/News1";
+
 function LeaguesPage() {
-  const [data, setData] = useState([]);
+  const { leagueId } = useParams();
+  const id = Number(leagueId);
+  const { standings, setSelectedLeagueId } = dataStore();
+
   useEffect(() => {
-    async function fetchData() {
-      const standings = await getStandings({ league: 39, season: 2024 });
-      setData(standings[0].league); // 결과를 JSON으로 변환 후 상태에 설정
-    }
-    fetchData();
-  }, []);
+    setSelectedLeagueId(id);
+  }, [id, setSelectedLeagueId]);
+
+  const [activeTab, setActiveTab] = useState("overview"); // 기본 탭 설정
 
   return (
     <>
-      <div className="leagueContainer">
-        <div className="title">{data?.name}</div>
-        <div className="fixturesNavigating"> 결과 , 예정</div>
-        <div className="fixtures">경기 나열 </div>
-        <div className="standings">
-          <div className="standings_title">팀 경기 승 무 패 득:실 득실차 승점 최근 5경기</div>
-          <table className="standings_table">
-            <thead>
-              <tr>
-                <th>순위</th>
-                <th>팀</th>
-                <th>경기</th>
-                <th>승</th>
-                <th>무</th>
-                <th>패</th>
-                <th>득:실</th>
-                <th>득실차</th>
-                <th>승점</th>
-                <th>최근 5경기</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data?.standings?.[0]?.map((team) => (
-                <tr key={team?.team?.id}>
-                  <td>{team?.rank}</td>
-                  <td className="td">
-                    <img src={team?.team?.logo} alt={team?.team?.name} className="team-logo" />
-                    {team?.team?.name}
-                  </td>
-                  <td>{team?.all?.played}</td>
-                  <td>{team?.all?.win}</td>
-                  <td>{team?.all?.draw}</td>
-                  <td>{team?.all?.lose}</td>
-                  <td>
-                    {team?.all?.goals?.for}:{team?.all?.goals?.against}
-                  </td>
-                  <td>{team?.goalsDiff}</td>
-                  <td>{team?.points}</td>
-                  <td>
-                    <div className="form-container">
-                      {team?.form?.split("")?.map((form, index) => (
-                        <div
-                          key={index}
-                          className={`form-item ${
-                            form === "W" ? "form-win" : form === "D" ? "form-draw" : "form-loss"
-                          }`}
-                        >
-                          {form}
-                        </div>
-                      ))}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <div className="league">
+        <div className="league__title">
+          <img className="league__title-img" src={standings?.flag} alt={standings?.flag} />
+          <div className="league__title-text">
+            <div className="league__title-text-name">{standings?.name}</div>
+            <div className="league__title-text-country">{standings?.country}</div>
+          </div>
+        </div>
+        <div className="league__fixturesNavigating">
+          <button className="league__fixturesNavigating-button" onClick={() => setActiveTab("overview")}>
+            개요
+          </button>
+          <button className="league__fixturesNavigating-button" onClick={() => setActiveTab("standings")}>
+            순위
+          </button>
+          <button className="league__fixturesNavigating-button" onClick={() => setActiveTab("fixtures")}>
+            경기
+          </button>
+          <button className="league__fixturesNavigating-button" onClick={() => setActiveTab("statistics")}>
+            통계
+          </button>
+          <button className="league__fixturesNavigating-button" onClick={() => setActiveTab("news")}>
+            뉴스
+          </button>
+        </div>
+        <div className="league__main">
+          {activeTab === "overview" && <Overview />}
+          {activeTab === "standings" && <Standings />}
+          {activeTab === "fixtures" && <Fixtures />}
+          {activeTab === "statistics" && <Statistics />}
+          {activeTab === "news" && <News1 />}
         </div>
       </div>
     </>
