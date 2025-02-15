@@ -5,17 +5,19 @@
   font-style: normal;
 }
 
-.league {
+.team {
   width: 83.72vw;
   display: grid;
   grid-template-rows: 100px 100px 1fr;
   height: 100vh;
   margin-bottom: 30px;
+  grid-row: 2/3;
+  grid-column: 2/3;
 }
 
 /*리그 소개 css*/
-
-.league__title {
+/* 
+.team__title {
   grid-row: 1/2;
   font-family: "Danjo-bold-Regular";
   display: flex;
@@ -23,35 +25,36 @@
   flex-wrap: wrap;
 }
 
-.league__title-img {
+.team__title-img {
   width: 120px;
+  height: 120px;
   border: 5px solid rgb(209, 209, 209);
 }
 
-.league__title-text-name {
+.team__title-text-name {
   font-weight: bolder;
   font-size: 40px;
 }
 
-.league__title-text-country {
+.team__title-text-country {
   font-size: 20px;
 }
 
-.league__title-text {
+.team__title-text {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   margin-left: 10px;
-}
+} */
 
 /*navigation Bar css*/
 
-.league__fixturesNavigating {
+.team__fixturesNavigating {
   grid-row: 2/3;
   align-self: flex-end;
 }
 
-.league__fixturesNavigating-button {
+.team__fixturesNavigating-button {
   width: 150px;
   height: 50px;
   font-weight: bold;
@@ -61,16 +64,17 @@
   border-radius: 20px 20px 0px 0px;
 }
 
-.league__fixturesNavigating-button:hover {
+.team__fixturesNavigating-button:hover {
   font-size: larger;
   font-weight: bolder;
   cursor: pointer;
   background-color: rgb(229, 229, 230);
+  border-bottom: 2px solid rgb(229, 229, 230);
 }
 
 /* 리그 메인 css */
 
-.league__main {
+.team__main {
   grid-row: 3/4;
   width: 100%;
   border: 2px solid #e5e7eb;

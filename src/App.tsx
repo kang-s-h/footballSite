@@ -2,12 +2,17 @@ import "./App.css";
 import LeaguesPage from "./components/leagues/LeaguesPage";
 import TeamsPage from "./components/teams/TeamsPage";
 import PlayersPage from "./components/players/PlayersPage";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import SelectLeague from "./components/selectLeague/SelectLeague";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { dataStore } from "./store/dataStore";
 import { getNews } from "./apis/news";
+
 function App() {
+  const location = useLocation();
+  const { setNews } = dataStore();
+  const [pageTitle, setPageTitle] = useState("");
+
   const leagues = [
     { name: "Premier League", id: 39 },
     { name: "Bundesliga", id: 78 },
@@ -15,8 +20,6 @@ function App() {
     { name: "Ligue 1", id: 61 },
     { name: "Serie A", id: 135 },
   ];
-
-  const { setNews } = dataStore();
 
   useEffect(() => {
     async function fetchData() {
@@ -26,9 +29,22 @@ function App() {
     fetchData();
   }, [setNews]);
 
+  useEffect(() => {
+    if (location.pathname.includes("/league")) {
+      setPageTitle("League");
+    } else if (location.pathname.includes("/team")) {
+      setPageTitle("Team");
+    } else if (location.pathname.includes("/player")) {
+      setPageTitle("Player");
+    } else {
+      setPageTitle("");
+    }
+  }, [location.pathname]);
+
   return (
     <>
       <div className="selectLeague">
+        <div className={pageTitle !== "" ? "pageLocation" : ""}>{pageTitle}</div>
         <div className="selectLeague_navigateBar">
           League
           <div className="dropdown">
@@ -39,7 +55,7 @@ function App() {
             ))}
           </div>
         </div>
-        <Routes>
+        <Routes key={location.pathname}>
           <Route path="/" element={<SelectLeague />} />
           <Route path="/league/:leagueId" element={<LeaguesPage />} />
           <Route path="/team/:teamId" element={<TeamsPage />} />

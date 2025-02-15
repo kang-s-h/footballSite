@@ -28,6 +28,22 @@
 } */
 
 /* 뉴스 부분 css  */
+
+.news_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-self: center;
+  justify-content: center;
+  gap: 30px;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin: 20px 0px;
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+
 .selectLeague_news {
   text-align: center;
 }

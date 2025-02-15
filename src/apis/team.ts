@@ -24,8 +24,3 @@ export function getTeamLeagueCup(queryParams) {
   const endPoint = `/v3/leagues`;
   return fetchApi(endPoint, queryParams);
 }
-
-export function getTeamStatistics(queryParams) {
-  const endpoint = `/v3/standings`;
-  return fetchApi(endpoint, queryParams);
-}

@@ -6,7 +6,9 @@ import Fixtures from "./components/Fixtures";
 import Statistics from "./components/Statistics";
 import { useEffect, useState } from "react";
 import { dataStore } from "../../store/dataStore";
-import News1 from "../common/News1";
+import News from "../common/News";
+import { Helmet } from "react-helmet-async";
+import LeagueTitle from "./components/LeagueTitle";
 
 function LeaguesPage() {
   const { leagueId } = useParams();
@@ -17,18 +19,23 @@ function LeaguesPage() {
     setSelectedLeagueId(id);
   }, [id, setSelectedLeagueId]);
 
-  const [activeTab, setActiveTab] = useState("overview"); // 기본 탭 설정
+  const [activeTab, setActiveTab] = useState("overview");
 
   return (
     <>
+      <Helmet>
+        <title>{`리그 페이지 ( ${standings?.name} )`}</title>
+        <meta />
+      </Helmet>
       <div className="league">
-        <div className="league__title">
+        {/* <div className="league__title">
           <img className="league__title-img" src={standings?.flag} alt={standings?.flag} />
           <div className="league__title-text">
             <div className="league__title-text-name">{standings?.name}</div>
             <div className="league__title-text-country">{standings?.country}</div>
           </div>
-        </div>
+        </div> */}
+        <LeagueTitle />
         <div className="league__fixturesNavigating">
           <button className="league__fixturesNavigating-button" onClick={() => setActiveTab("overview")}>
             개요
@@ -51,7 +58,7 @@ function LeaguesPage() {
           {activeTab === "standings" && <Standings />}
           {activeTab === "fixtures" && <Fixtures />}
           {activeTab === "statistics" && <Statistics />}
-          {activeTab === "news" && <News1 />}
+          {activeTab === "news" && <News />}
         </div>
       </div>
     </>

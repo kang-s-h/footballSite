@@ -1,0 +1,56 @@
+.teamOverview__fixtures {
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+
+.teamOverview__fixture_container_box {
+  display: flex;
+  flex: row;
+  align-items: center;
+  height: 60px;
+  border-top: 2px solid rgb(222, 222, 222);
+}
+
+.teamOverview__fixture_container_box-round {
+  font-weight: bold;
+  width: 400px;
+  text-align: center;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.teamOverview__fixture_container_box-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+}
+
+.teamOverview__fixture_container_box-name {
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.teamOverview__fixture_container_box-score {
+  box-sizing: border-box;
+  margin-right: 15px;
+  width: 40px;
+  text-align: center;
+}
+
+.teamOverview__fixture_container_box-score:hover {
+  border-bottom: 3px solid black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.teamOverview__fixtures-title {
+  font-size: x-large;
+  font-weight: bolder;
+  margin: 10px 0px 30px 30px;
+  border-radius: 30px;
+  background-color: rgb(177, 177, 177);
+  width: 130px;
+  text-align: center;
+  padding: 7px;
+}

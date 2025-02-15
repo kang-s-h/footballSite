@@ -3,11 +3,11 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.league__standings {
+.overview__standings {
   grid-column: 1/2;
 }
 
-.league__fixturesResult {
+.overview__fixturesResult {
   grid-column: 2/3;
 }
 
@@ -151,12 +151,6 @@
 .league__fixture_container_box-score {
   box-sizing: border-box;
   margin: 0px 5px 5px 0px;
-}
-
-.league__fixture_container_box-score:hover {
-  border-bottom: 3px solid black;
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .league__fixture_container_box-name:hover {

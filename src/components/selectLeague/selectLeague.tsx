@@ -1,21 +1,11 @@
 import "./selectLeague.css";
-// import PremierLeagueImg from "../../assets/PremierLeague.jpg";
-// import BundesLigaImg from "../../assets/BundesLiga.jpg";
-// import LaLigaImg from "../../assets/LaLiga.jpg";
-// import League1Img from "../../assets/League1.jpg";
-// import SerieAImg from "../../assets/SerieA.jpg";
-// import { useNavigate } from "react-router-dom";
-
-import { useEffect, useState } from "react";
-import { getNews } from "../../apis/news";
-import { dataStore } from "../../store/dataStore";
-import News1 from "../common/News1";
+import News from "../common/News";
 
 function SelectLeague() {
   return (
-    <>
-      <News1 />
-    </>
+    <div className="news_container">
+      <News />
+    </div>
   );
 }
 

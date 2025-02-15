@@ -11,6 +11,8 @@
   grid-template-rows: 100px 100px 1fr;
   height: 100vh;
   margin-bottom: 30px;
+  grid-row: 2/3;
+  grid-column: 2/3;
 }
 
 /*리그 소개 css*/
@@ -66,6 +68,7 @@
   font-weight: bolder;
   cursor: pointer;
   background-color: rgb(229, 229, 230);
+  border-bottom: 2px solid rgb(229, 229, 230);
 }
 
 /* 리그 메인 css */

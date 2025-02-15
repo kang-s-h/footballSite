@@ -1,5 +1,5 @@
 import "./statistics.css";
-import TopPlayerCard from "./TopPlayerCard";
+import TopPlayerCard from "./statisticsComponents/TopPlayerCard";
 function Statistics() {
   return (
     <div className="statistics">

@@ -2,21 +2,24 @@ import "./standings.css";
 import { dataStore } from "../../../store/dataStore";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-
+import StandingsCard from "./standingsComponents/StandingsCard";
 function Standings() {
-  const { standings, setSelectedTeamId } = dataStore();
+  const { standings, moveTeamPage, setNavigate } = dataStore();
   const navigateTeamPage = useNavigate();
 
-  function moveTeamPage(id) {
-    const teamNumId = Number(id);
-    setSelectedTeamId(teamNumId);
+  useEffect(() => {
+    setNavigate(navigateTeamPage);
+  }, [navigateTeamPage, setNavigate]);
+  // function moveTeamPage(id) {
+  //   const teamNumId = Number(id);
+  //   setSelectedTeamId(teamNumId);
 
-    navigateTeamPage(`/team/${teamNumId}`);
-  }
+  //   navigateTeamPage(`/team/${teamNumId}`);
+  // }
 
   return (
     <>
-      <div className="standings__boxCss">
+      {/* <div className="standings__boxCss">
         <div className="standings">
           <table className="standings_table">
             <thead>
@@ -73,7 +76,8 @@ function Standings() {
             </tbody>
           </table>
         </div>
-      </div>
+      </div> */}
+      <StandingsCard isOverview={false} />
     </>
   );
 }

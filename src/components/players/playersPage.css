@@ -1,15 +1,17 @@
-@font-face {
+/* @font-face {
   font-family: "Danjo-bold-Regular";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Danjo-bold-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 .player {
   width: 83.72vw;
   display: grid;
   grid-template-rows: 200px 1fr;
   height: 100vh;
+  grid-row: 2/3;
+  grid-column: 2/3;
 }
 
 .player__main {
@@ -21,13 +23,14 @@
 }
 
 /* 선수 프로필 css  */
-
+/* 
 .player__profile {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-left: 20px;
   height: 100px;
+  grid-row: 1/2;
 }
 
 .player__profile-img {
@@ -75,11 +78,11 @@
   font-weight: bolder;
   font-size: large;
   border-left: 2px solid rgb(192, 192, 192);
-}
+} */
 
 /* 선수 통계 css */
 
-.player__statistics_title {
+/* .player__statistics_title {
   font-size: x-large;
   margin: 30px 0px;
   text-align: center;
@@ -107,10 +110,10 @@
 
 .player__statistics_table-td {
   align-items: center;
-}
+} */
 
 /* 선수 수상 css */
-
+/* 
 .player__trophies {
   grid-row: 2/3;
   grid-column: 2/3;
@@ -145,4 +148,4 @@
   margin: 20px;
   padding: 30px 10px;
   border-radius: 20px;
-}
+} */
