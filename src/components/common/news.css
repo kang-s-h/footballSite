@@ -24,11 +24,6 @@
   border-radius: 40px 40px 0px 0px;
 }
 
-.news_container_box-headline {
-  font-size: larger;
-  font-weight: bolder;
-}
-
 .news_container_box-title {
   background-color: rgb(243, 243, 243);
   height: 280px;

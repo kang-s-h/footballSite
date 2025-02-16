@@ -1,3 +1,5 @@
+import { QueryParams } from "../store/types";
+
 const API_KEY = import.meta.env.VITE_API_KEY;
 const VITE_API_HOST = import.meta.env.VITE_API_HOST;
 
@@ -11,7 +13,7 @@ const options = {
 
 export { API_KEY, VITE_API_HOST, options };
 
-export async function fetchApi(endPoint, queryParams) {
+export async function fetchApi(endPoint: string, queryParams: QueryParams) {
   let queryStr = "";
   const queryParamsArr = Object.entries(queryParams);
   queryParamsArr.forEach(([key, value], idx) => {

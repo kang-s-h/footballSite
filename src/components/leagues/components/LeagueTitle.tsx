@@ -1,6 +1,7 @@
 import { dataStore } from "../../../store/dataStore";
 import { useEffect, useState } from "react";
 import Skeletons from "../../skeletons/Skeletons";
+import "./leagueTitle.css";
 
 function LeagueTitle() {
   const { standings } = dataStore();
@@ -26,4 +27,5 @@ function LeagueTitle() {
     </>
   );
 }
+
 export default LeagueTitle;

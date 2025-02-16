@@ -3,9 +3,10 @@ import "../../commonStyle.css";
 import { dataStore } from "../../../store/dataStore";
 import { useEffect, useState } from "react";
 import Skeletons from "../../skeletons/Skeletons";
+import { PlayerStatisticEntry } from "../../../store/types";
+
 function PlayerStatistics() {
   const { playerStatistics } = dataStore();
-
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -34,22 +35,36 @@ function PlayerStatistics() {
               </tr>
             </thead>
             <tbody>
-              {/* 나중에 NAN -으로 처리하기  */}
-              {playerStatistics?.statistics?.map((statistic, index) => (
+              {playerStatistics?.statistics?.map((statistic: PlayerStatisticEntry, index) => (
                 <tr key={index}>
                   <td>{statistic?.league?.name}</td>
                   <td className="player__statistics_table-td">
                     {statistic?.games?.appearences}({statistic?.substitutes?.in})
                   </td>
                   <td>{Number(statistic?.games?.rating).toFixed(2)}</td>
-                  <td>{`${Number(statistic?.shots?.on / statistic?.shots?.total).toFixed(2) * 100}%`}</td>
+                  <td>
+                    {Number(statistic?.shots?.total) !== 0
+                      ? `${Math.trunc(((statistic?.shots?.on ?? 0) / (statistic?.shots?.total ?? 0)) * 100)}%`
+                      : "-"}
+                  </td>
                   <td>
                     {statistic?.goals?.total}({statistic?.penalty?.scored})
                   </td>
-                  <td>{statistic?.goals?.assists}</td>
-                  <td>{Math.round(statistic?.passes?.key / statistic?.passes?.total) * 100}</td>
-                  <td>{Math.round(statistic?.duels?.won / statistic?.duels?.total) * 100}</td>
-                  <td>{Math.round(statistic?.dribbles?.success / statistic?.dribbles?.success) * 100}</td>
+                  <td>{statistic?.goals?.assists ?? "-"}</td>
+                  <td>{Number(statistic?.passes?.total) !== 0 ? `${statistic?.passes?.key ?? 0}` : "-"}</td>
+                  <td>
+                    {Number(statistic?.duels?.total) !== 0
+                      ? `${Math.trunc(((statistic?.duels?.won ?? 0) / (statistic?.duels?.total ?? 0)) * 100)}%`
+                      : "-"}
+                  </td>
+                  <td>
+                    {Number(statistic?.dribbles?.attempts) !== 0
+                      ? `${Math.trunc(
+                          ((statistic?.dribbles?.success ?? 0) / (statistic?.dribbles?.attempts ?? 0)) * 100
+                        )}%`
+                      : "-"}
+                  </td>
+
                   <td>
                     {statistic?.cards?.yellow}({statistic?.cards?.red})
                   </td>

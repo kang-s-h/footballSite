@@ -2,31 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { dataStore } from "../../../../store/dataStore";
 import { useEffect, useState } from "react";
 import Skeletons from "../../../skeletons/Skeletons";
-
-type PlayerType = {
-  player?: {
-    id?: number;
-    photo?: string;
-    name?: string;
-  };
-  statistics?: {
-    team?: {
-      logo?: string;
-      name?: string;
-    };
-    goals?: {
-      total?: number;
-      assists?: number;
-    };
-    cards?: {
-      yellow?: number;
-      red?: number;
-    };
-    penalty?: {
-      scored?: number;
-    };
-  }[];
-};
+import "../../../commonStyle.css";
+import "./topPlayerCard.css";
+import { PlayerType } from "../../../../store/types";
 
 function TopPlayerCard({ title, info }: { title: string; info: string }) {
   const { topPlayerGoals, topPlayerAssists, topPlayerYellowCards, topPlayerRedCards, setNavigate, movePlayerPage } =
@@ -48,25 +26,25 @@ function TopPlayerCard({ title, info }: { title: string; info: string }) {
   switch (title) {
     case "Goals":
       apiArray = topPlayerGoals;
-      css = "statistics__goals";
+      css = "topPlayerCard__goals";
       rankPoint = (player) => player.statistics?.[0]?.goals?.total;
       isGoal = true;
       break;
     case "Assists":
       apiArray = topPlayerAssists;
-      css = "statistics__assists";
+      css = "topPlayerCard__assists";
       rankPoint = (player) => player.statistics?.[0]?.goals?.assists;
       isGoal = false;
       break;
     case "YellowCards":
       apiArray = topPlayerYellowCards;
-      css = "statistics__yellowCards";
+      css = "topPlayerCard__yellowCards";
       rankPoint = (player) => player.statistics?.[0]?.cards?.yellow;
       isGoal = false;
       break;
     case "RedCards":
       apiArray = topPlayerRedCards;
-      css = "statistics__redCards";
+      css = "topPlayerCard__redCards";
       rankPoint = (player) => player.statistics?.[0]?.cards?.red;
       isGoal = false;
       break;
@@ -77,30 +55,34 @@ function TopPlayerCard({ title, info }: { title: string; info: string }) {
       {isLoading ? (
         <Skeletons width={600} height={600} margin={20} borderRadius={20} />
       ) : (
-        <div className={`${css} statistics__boxCss`}>
-          <div className="statistics-title">{title}</div>
-          <div className="statistics-title-info">{info}</div>
-          <div className="league__topPlayer_container">
+        <div className={`${css} common__boxCss`}>
+          <div className="topPlayerCard-title">{title}</div>
+          <div className="topPlayerCard-title-info">{info}</div>
+          <div className="topPlayerCard__container">
             {apiArray?.map((player: PlayerType, index) => (
               <div
                 key={player?.player?.id}
-                className="league__topPlayer_box"
-                onClick={() => movePlayerPage(player.player.id)}
+                className="topPlayerCard__container_box"
+                onClick={() => {
+                  if (player.player?.id) {
+                    movePlayerPage(player.player.id);
+                  }
+                }}
               >
-                <div style={{ fontWeight: "bolder", fontSize: "larger" }}>{index + 1}</div>
+                <div className="topPlayerCard__container_box-standings">{index + 1}</div>
                 <img
-                  className="league__topPlayer_box_team-playerImg"
+                  className="topPlayerCard__container_box_team-playerImg"
                   src={player.player?.photo}
                   alt={player.player?.photo}
                 />
-                <div className="league__topPlayer_box-name">
+                <div className="topPlayerCard__container_box-name">
                   <span>{player.player?.name}</span>
-                  <div className="league__topPlayer_box-team">
+                  <div className="topPlayerCard__container_box-team">
                     <img src={player.statistics?.[0]?.team?.logo} alt={player.statistics?.[0]?.team?.logo} />
-                    <div className="league__topPlayer_box-team-name">{player.statistics?.[0]?.team?.name}</div>
+                    <div className="topPlayerCard__container_box-team-name">{player.statistics?.[0]?.team?.name}</div>
                   </div>
                 </div>
-                <div className="league__topPlayer_box-goals">
+                <div className="topPlayerCard__container_box-goals">
                   {`${rankPoint(player)}${isGoal ? `(${player.statistics?.[0]?.penalty?.scored})` : ""}`}
                 </div>
               </div>

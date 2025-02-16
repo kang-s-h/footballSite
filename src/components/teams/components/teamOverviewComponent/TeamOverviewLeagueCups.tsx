@@ -3,6 +3,7 @@ import "../../../commonStyle.css";
 import { dataStore } from "../../../../store/dataStore";
 import { useState, useEffect } from "react";
 import Skeletons from "../../../skeletons/Skeletons";
+import { TeamLeagueCupsType } from "../../../../store/types";
 
 function TeamLeagueCups() {
   const { teamLeagueCups } = dataStore();
@@ -22,7 +23,7 @@ function TeamLeagueCups() {
         <div className="teamOverview__leagueCup common__boxCss">
           <div className="teamOverview__leagueCup-title">참여 대회</div>
           <div className="teamOverview__leagueCup_container">
-            {teamLeagueCups?.map((leagueCup, index) => (
+            {teamLeagueCups?.map((leagueCup: TeamLeagueCupsType, index) => (
               <div key={index} className="teamOverview__leagueCup_container_box boxCssLeagueCup">
                 <img
                   className="teamOverview__leagueCup_container_box-img"

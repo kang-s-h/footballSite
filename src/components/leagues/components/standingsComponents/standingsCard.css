@@ -1,29 +1,10 @@
-.standings__boxCss {
-  border: 2px solid rgb(229, 229, 230);
-  background-color: rgb(248, 248, 248);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  margin: 20px;
-  padding: 60px 10px;
-  border-radius: 20px;
-}
-
-.standings-title {
-  padding: 10px;
-  width: 37px;
-  font-size: large;
-  font-weight: bold;
-  border-radius: 30px;
-  background-color: rgb(177, 177, 177);
-  justify-self: center;
-  margin-bottom: 20px;
-}
-
 .standings_table {
   width: 90%;
   text-align: center;
   font-size: 14px;
   border-collapse: collapse;
   justify-self: center;
+  margin-top: 35px;
 }
 
 .standings_table td {
@@ -87,61 +68,4 @@
 .standings_table-form-container-loss {
   background-color: rgb(255, 0, 0);
   color: white;
-}
-
-/* 경기 결과 css  */
-
-.fixtures {
-  grid-row: 3/4;
-  grid-column: 1/2;
-  padding: 0px 20px 0px 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.fixturesResult-title {
-  padding: 10px;
-  width: 80px;
-  font-size: large;
-  font-weight: bold;
-  border-radius: 30px;
-  background-color: rgb(177, 177, 177);
-  justify-self: center;
-  margin-bottom: 20px;
-}
-
-.fixture_container_box {
-  display: flex;
-  flex: row;
-  gap: 10px;
-  align-items: center;
-  height: 60px;
-  border-top: 1px solid rgb(186, 182, 182);
-}
-
-.fixture_container_box-round {
-  font-weight: bold;
-}
-
-.fixture_container_box-img {
-  width: 30px;
-  height: 30px;
-}
-
-.fixture_container_box-name {
-  width: 100px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.fixture_container_box-score {
-  box-sizing: border-box;
-  margin: 0px 5px 5px 0px;
-}
-
-.fixtures_container_box_button {
-  margin-top: 20px;
-  padding: 5px;
-  width: 513.8px;
 }

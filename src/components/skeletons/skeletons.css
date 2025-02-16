@@ -4,7 +4,6 @@
   overflow: hidden;
 }
 
-/* Shimmer 애니메이션 */
 .skeletons::after {
   content: "";
   position: absolute;
@@ -15,7 +14,6 @@
   animation: shimmer 2s infinite;
 }
 
-/* Shimmer 애니메이션 동작 */
 @keyframes shimmer {
   0% {
     transform: translateX(-100%);

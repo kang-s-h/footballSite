@@ -28,13 +28,6 @@ function LeaguesPage() {
         <meta />
       </Helmet>
       <div className="league">
-        {/* <div className="league__title">
-          <img className="league__title-img" src={standings?.flag} alt={standings?.flag} />
-          <div className="league__title-text">
-            <div className="league__title-text-name">{standings?.name}</div>
-            <div className="league__title-text-country">{standings?.country}</div>
-          </div>
-        </div> */}
         <LeagueTitle />
         <div className="league__fixturesNavigating">
           <button className="league__fixturesNavigating-button" onClick={() => setActiveTab("overview")}>

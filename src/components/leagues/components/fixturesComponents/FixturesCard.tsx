@@ -4,6 +4,8 @@ import dayjs from "dayjs";
 import { regExpStore } from "../../../../store/regExpStore";
 import { useEffect, useState } from "react";
 import Skeletons from "../../../skeletons/Skeletons";
+import "../../../commonStyle.css";
+import { FixtureType } from "../../../../store/types";
 function FixturesCard({ title }: { title: string }) {
   const { lastFixtures, nextFixtures, moveTeamPage } = dataStore();
   const { replaceRoundStr } = regExpStore();
@@ -21,38 +23,47 @@ function FixturesCard({ title }: { title: string }) {
       {isLoading ? (
         <Skeletons width={600} height={600} margin={20} borderRadius={20} />
       ) : (
-        <div className="fixtures__lastFixtures fixtures__boxCss overview_fixturesResult">
-          <div className="fixtures__Fixtures-title">{title}</div>
+        <div className="common__boxCss">
+          <div className="fixtures-title">{title}</div>
           <div className="fixtures">
             <div className="fixture_container">
-              {fixturesKind?.map((fixture, index) => (
+              {fixturesKind?.map((fixture: FixtureType, index: number) => (
                 <div key={index} className="fixture_container_box">
-                  <div className="fixture_container_box-round" key={index}>{`${fixture?.league?.round.replace(
-                    replaceRoundStr,
-                    ""
-                  )}라운드`}</div>
-                  <img className="fixture_container_box-img" src={fixture?.teams?.home?.logo} />
+                  <div className="fixture_container_box-round" key={index}>{`${
+                    fixture.league?.round?.replace(replaceRoundStr, "") ?? ""
+                  } 라운드`}</div>
+                  <img className="fixture_container_box-img" src={fixture.teams?.home?.logo} />
                   <div
                     className="fixture_container_box-name"
-                    title={fixture?.teams?.home?.name}
-                    onClick={() => moveTeamPage(fixture?.teams?.home?.id)}
+                    title={fixture.teams?.home?.name}
+                    onClick={() => {
+                      if (fixture.teams?.home?.id) {
+                        moveTeamPage(fixture.teams.home.id);
+                      }
+                    }}
                   >
                     {fixture?.teams?.home?.name}
                   </div>
                   <div className="fixture_container_box-score">
-                    {fixture?.score?.fulltime?.home} - {fixture?.score?.fulltime?.away}
+                    {title === "최근 경기"
+                      ? fixture.score?.fulltime?.home !== null
+                        ? `${fixture.score?.fulltime?.home} - ${fixture.score?.fulltime?.away}`
+                        : "경기중"
+                      : "VS"}
                   </div>
-                  <img className="fixture_container_box-img" src={fixture?.teams?.away?.logo} />
+                  <img className="fixture_container_box-img" src={fixture.teams?.away?.logo} />
                   <div
                     className="fixture_container_box-name"
-                    title={fixture?.teams?.away?.name}
-                    onClick={() => moveTeamPage(fixture?.teams?.away?.id)}
+                    title={fixture.teams?.away?.name}
+                    onClick={() => {
+                      if (fixture.teams?.away?.id) {
+                        moveTeamPage(fixture.teams.away.id);
+                      }
+                    }}
                   >
-                    {fixture?.teams?.away?.name}
+                    {fixture.teams?.away?.name}
                   </div>
-                  <div className="fixture_container_box-date">
-                    {dayjs(fixture?.fixture?.date).format("MM-DD HH:mm")}
-                  </div>
+                  <div className="fixture_container_box-date">{dayjs(fixture.fixture?.date).format("MM-DD HH:mm")}</div>
                 </div>
               ))}
             </div>

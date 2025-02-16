@@ -10,49 +10,74 @@ import {
 import { getTeamImg, getTeamLeagueCup, getTeamSquad, getTeamTransfer } from "../apis/team";
 import { getNews } from "../apis/news";
 import { getPlayer, getPlayerTrophies } from "../apis/player";
-import { NavigateFunction } from "react-router-dom";
 import { persist } from "zustand/middleware";
+import { Data, PlayerStatisticsType, TeamImgType } from "./types";
+// interface Data {
+//   selectedLeagueId: number;
+//   selectedTeamId: number;
+//   selectedPlayerId: number;
+//   nextFixtures: object[];
+//   lastFixtures: object[];
+//   standings: StandingsData | null;
+//   topPlayerGoals: object[];
+//   topPlayerAssists: object[];
+//   topPlayerYellowCards: object[];
+//   topPlayerRedCards: object[];
+//   news: object[];
+//   displayCount: number;
+//   teamLeagueCups: object[];
+//   teamStatistics: object[];
+//   teamFixtures: object[];
+//   teamSquad: object[];
+//   teamTransfer: object[];
+//   teamLastFixtures: object[];
+//   teamNextFixtures: object[];
+//   teamImg: object[];
+//   playerStatistics: object[];
+//   playerTrophies: object[];
+//   // isOverviewStandings: boolean;
+//   navigate: NavigateFunction | null;
+//   setSelectedLeagueId: (league: number) => void;
+//   fetchLeagueData: () => Promise<void>; //  API 호출 함수 추가
+//   setDisplayCount: () => void;
+//   setNews: (newsData: object[]) => void;
+//   setSelectedTeamId: (team: number) => void;
+//   fetchTeamData: () => Promise<void>;
+//   setSelectedPlayerId: (player: number) => void;
+//   fetchPlayerData: () => Promise<void>;
+//   setNavigate: (navigate: NavigateFunction) => void;
+//   moveTeamPage: (id: string) => void;
+//   movePlayerPage: (id: string) => void;
+//   // setIsOverviewStandings: (isOverview: boolean) => void;
+//   // setNextFixtures: () => void;
+//   // setLastFixtures: () => void;
+// }
 
-interface Data {
-  selectedLeagueId: number;
-  selectedTeamId: number;
-  selectedPlayerId: number;
-  nextFixtures: object[];
-  lastFixtures: object[];
-  standings: object[];
-  topPlayerGoals: object[];
-  topPlayerAssists: object[];
-  topPlayerYellowCards: object[];
-  topPlayerRedCards: object[];
-  news: object[];
-  displayCount: number;
-  teamLeagueCups: object[];
-  teamStatistics: object[];
-  teamFixtures: object[];
-  teamSquad: object[];
-  teamTransfer: object[];
-  teamLastFixtures: object[];
-  teamNextFixtures: object[];
-  teamImg: object[];
-  playerStatistics: object[];
-  playerTrophies: object[];
-  // isOverviewStandings: boolean;
-  navigate: NavigateFunction | null;
-  setSelectedLeagueId: (league: number) => void;
-  fetchLeagueData: () => Promise<void>; //  API 호출 함수 추가
-  setDisplayCount: () => void;
-  setNews: (newsData: object[]) => void;
-  setSelectedTeamId: (team: number) => void;
-  fetchTeamData: () => Promise<void>;
-  setSelectedPlayerId: (player: number) => void;
-  fetchPlayerData: () => Promise<void>;
-  setNavigate: (navigate: NavigateFunction) => void;
-  moveTeamPage: (id: string) => void;
-  movePlayerPage: (id: string) => void;
-  // setIsOverviewStandings: (isOverview: boolean) => void;
-  // setNextFixtures: () => void;
-  // setLastFixtures: () => void;
-}
+// interface StandingsData {
+//   standings: TeamType[][];
+// }
+
+// export interface TeamType {
+//   team?: {
+//     id?: string;
+//     logo?: string;
+//     name?: string;
+//   };
+//   rank?: number;
+//   all?: {
+//     played?: number;
+//     win?: number;
+//     draw?: number;
+//     lose?: number;
+//     goals?: {
+//       for?: number;
+//       against?: number;
+//     };
+//   };
+//   goalsDiff?: number;
+//   points?: number;
+//   form?: string;
+// }
 
 const leagues = [
   { name: "Premier League", id: 39, news: "eng.1" },
@@ -65,13 +90,12 @@ const leagues = [
 export const dataStore = create(
   persist<Data>(
     (set, get) => ({
-      // const navigateTeamPage = useNavigate();
       selectedLeagueId: 0,
       selectedTeamId: 0,
       selectedPlayerId: 0,
       nextFixtures: [],
       lastFixtures: [],
-      standings: [],
+      standings: null,
       topPlayerGoals: [],
       topPlayerAssists: [],
       topPlayerYellowCards: [],
@@ -85,11 +109,10 @@ export const dataStore = create(
       teamTransfer: [],
       teamLastFixtures: [],
       teamNextFixtures: [],
-      teamImg: [],
-      playerStatistics: [],
+      teamImg: {} as TeamImgType,
+      playerStatistics: {} as PlayerStatisticsType,
       playerTrophies: [],
       navigate: null,
-      // isOverviewStandings: true,
       setSelectedLeagueId: (league) => {
         const { selectedLeagueId } = get(); //  현재 리 그 ID 가져오기
         if (selectedLeagueId === league) return; //  기존과 동일하면 API 호출 안 함
@@ -236,9 +259,6 @@ export const dataStore = create(
         }
         navigatePlayerPage(`/player/${Number(id)}`);
       },
-      // setNextFixtures: () => set((state) => ({ nextFixtures: state.nextFixtures + 20 })),
-      // setLastFixtures: () => set((state) => ({ lastFixtures: state.lastFixtures + 20 })),
-      // setIsOverviewStandings: () => set((state) => ({ isOverviewStandings: !state.isOverviewStandings })),
     }),
     { name: "soccerData" }
   )

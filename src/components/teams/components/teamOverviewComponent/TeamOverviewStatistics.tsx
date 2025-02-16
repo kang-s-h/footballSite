@@ -3,9 +3,10 @@ import "../../../commonStyle.css";
 import { dataStore } from "../../../../store/dataStore";
 import { useState, useEffect } from "react";
 import Skeletons from "../../../skeletons/Skeletons";
+import { TeamStatisticsType } from "../../../../store/types";
 
 function TeamOverviewStatistics() {
-  const { teamStatistics } = dataStore();
+  const { teamStatistics }: { teamStatistics: TeamStatisticsType[] | null } = dataStore();
 
   const [isLoading, setIsLoading] = useState(true);
 

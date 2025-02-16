@@ -13,8 +13,6 @@
   margin-bottom: 30px;
 }
 
-/* 팀 경기 */
-
 .teamFixture_container_box {
   display: flex;
   flex: row;

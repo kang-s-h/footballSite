@@ -1,4 +1,4 @@
-export async function getNews(league) {
+export async function getNews(league: string) {
   const url = `https://site.api.espn.com/apis/site/v2/sports/soccer/${league}/news?limit=100`;
 
   try {

@@ -4,6 +4,7 @@ import { dataStore } from "../../../../store/dataStore";
 import { regExpStore } from "../../../../store/regExpStore";
 import { useState, useEffect } from "react";
 import Skeletons from "../../../skeletons/Skeletons";
+import { TeamFixtureType } from "../../../../store/types";
 
 function TeamOverviewFixtures() {
   const { teamFixtures } = dataStore();
@@ -24,12 +25,11 @@ function TeamOverviewFixtures() {
         <div className="teamOverview__fixtures common__boxCss">
           <div className="teamOverview__fixtures-title">최근 경기</div>
           <div className="fixture_container">
-            {teamFixtures?.map((fixture, index) => (
+            {teamFixtures?.map((fixture: TeamFixtureType, index) => (
               <div key={index} className="teamOverview__fixture_container_box">
-                <div
-                  className="teamOverview__fixture_container_box-round"
-                  key={index}
-                >{`${fixture?.league?.round.replace(replaceRoundStr, "")} 라운드`}</div>
+                <div className="teamOverview__fixture_container_box-round" key={index}>{`${
+                  fixture.league?.round?.replace(replaceRoundStr, "") ?? ""
+                } 라운드`}</div>
                 <img className="teamOverview__fixture_container_box-img" src={fixture?.teams?.home?.logo} />
 
                 <div className="teamOverview__fixture_container_box-score">

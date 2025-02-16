@@ -2,17 +2,9 @@ import "./teamTransfer.css";
 import { dataStore } from "../../../store/dataStore";
 import { useState, useEffect } from "react";
 import Skeletons from "../../skeletons/Skeletons";
+import { TeamTransferType } from "../../../store/types";
 function TeamTransfer() {
-  const { selectedTeamId, teamTransfer } = dataStore();
-  // const [teamTransfer, setTeamTransfer] = useState([]);
-
-  // useEffect(() => {
-  //   async function fetchTeamTransfer() {
-  //     const teamTransferData = await getTeamTransfer({ team: selectedTeamId });
-  //     setTeamTransfer(teamTransferData.reverse());
-  //   }
-  //   fetchTeamTransfer();
-  // }, [selectedTeamId]);
+  const { teamTransfer } = dataStore();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -26,7 +18,7 @@ function TeamTransfer() {
           ? Array.from({ length: 20 }).map((_, index) => (
               <Skeletons key={index} width={1250} height={150} borderRadius={200} margin={20} />
             ))
-          : teamTransfer?.map((player, index) => (
+          : teamTransfer?.map((player: TeamTransferType, index) => (
               <div key={index} className="transfer_container_box">
                 <div className="transfer_container_box-name">{player?.player?.name}</div>
                 <img

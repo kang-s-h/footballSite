@@ -1,0 +1,28 @@
+.league__title {
+  grid-row: 1/2;
+  font-family: "Danjo-bold-Regular";
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.league__title-img {
+  width: 120px;
+  border: 5px solid rgb(209, 209, 209);
+}
+
+.league__title-text-name {
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+.league__title-text-country {
+  font-size: 20px;
+}
+
+.league__title-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 10px;
+}

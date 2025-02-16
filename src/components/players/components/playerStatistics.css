@@ -20,11 +20,12 @@
   text-align: center;
   font-size: 14px;
   padding: 0px 20px;
+  border-collapse: collapse;
 }
 
 .player__statistics_table td {
-  border: 1px solid #ddd;
-  padding: 9px;
+  padding: 9px 17px;
+  border-bottom: 1px solid rgb(214, 214, 214);
 }
 
 .player__statistics_table th {

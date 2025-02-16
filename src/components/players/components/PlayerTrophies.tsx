@@ -3,6 +3,7 @@ import "../../commonStyle.css";
 import { dataStore } from "../../../store/dataStore";
 import { useEffect, useState } from "react";
 import Skeleton from "../../skeletons/Skeletons";
+import { PlayerTrophiesType } from "../../../store/types";
 
 function PlayerTrophies() {
   const { playerTrophies } = dataStore();
@@ -20,7 +21,7 @@ function PlayerTrophies() {
         <div className="player__trophies common__boxCss">
           <div className="player__trophies_title">수상</div>
           <div className="player__trophies_container">
-            {playerTrophies?.map((trophi, index) => (
+            {playerTrophies?.map((trophi: PlayerTrophiesType, index: number) => (
               <div key={index} className="player__trophies_container_box">
                 <div>{trophi?.league}</div>
                 <div>{trophi?.country}</div>
