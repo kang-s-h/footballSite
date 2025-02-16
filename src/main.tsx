@@ -7,7 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 
 createRoot(document.getElementById("root")!).render(
   <HelmetProvider>
-    <BrowserRouter>
+    <BrowserRouter basename="/footballSite">
       <StrictMode>
         <App />
       </StrictMode>
