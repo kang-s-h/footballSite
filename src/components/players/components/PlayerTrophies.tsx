@@ -16,7 +16,7 @@ function PlayerTrophies() {
   return (
     <>
       {isLoading ? (
-        <Skeleton width={1180} height={1000} borderRadius={20} margin={20} />
+        <Skeleton width={"82.5vw"} height={1000} borderRadius={20} margin={20} />
       ) : (
         <div className="player__trophies common__boxCss">
           <div className="player__trophies_title">수상</div>

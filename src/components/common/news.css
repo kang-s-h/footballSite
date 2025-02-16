@@ -8,6 +8,7 @@
   padding: 5% 4% 2% 4%;
   grid-row: 2/3;
   grid-column: 2/3;
+  width: 88vw;
 }
 
 .news_container_box {

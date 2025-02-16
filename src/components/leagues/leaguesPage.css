@@ -6,7 +6,7 @@
 }
 
 .league {
-  width: 83.72vw;
+  width: 88vw;
   display: grid;
   grid-template-rows: 100px 100px 1fr;
   height: 100vh;
@@ -21,7 +21,7 @@
 }
 
 .league__fixturesNavigating-button {
-  width: 150px;
+  width: 9vw;
   height: 50px;
   font-weight: bold;
   font-size: large;

@@ -4,13 +4,14 @@
 
 .teamFixtures__Fixtures-title {
   padding: 10px 20px;
-  width: 85px;
+  width: 6vw;
   font-size: larger;
   font-weight: bold;
   border-radius: 30px;
   background-color: rgb(177, 177, 177);
   justify-self: center;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .teamFixture_container_box {
@@ -31,7 +32,7 @@
 
 .teamFixture_container_box-round {
   font-weight: bold;
-  width: 300px;
+  width: 20vw;
   margin-left: 30px;
 }
 
@@ -44,7 +45,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 200px;
+  width: 12vw;
 }
 
 .teamFixture_container_box-score {

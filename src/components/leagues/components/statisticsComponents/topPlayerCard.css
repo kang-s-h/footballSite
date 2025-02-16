@@ -28,12 +28,17 @@
   grid-column: 2/3;
 }
 
+.topPlayerCard-boxSize {
+  width: 40vw;
+}
+
 .topPlayerCard-title-info {
-  padding-left: 81%;
+  text-align: end;
   font-weight: 700;
   font-size: large;
   border-bottom: 1px solid rgb(220, 220, 220);
   padding-bottom: 10px;
+  padding-right: 1vw;
 }
 
 .topPlayerCard__container {
@@ -44,9 +49,9 @@
 .topPlayerCard__container_box {
   display: flex;
   flex-direction: row;
-  margin: 20px;
+  margin: 1vw;
   align-items: center;
-  gap: 20px;
+  gap: 1vw;
   cursor: pointer;
 }
 
@@ -63,19 +68,21 @@
   flex: none;
   font-weight: bolder;
   font-size: larger;
+  width: 7vw;
 }
 
 .topPlayerCard__container_box-goals {
   font-weight: bolder;
+  width: 19vw;
+  text-align: end;
 }
 
 .topPlayerCard__container_box-team {
   display: flex;
   flex-direction: row;
-  width: 50px;
+  width: 3vw;
   margin-top: 10px;
   height: 50px;
-  margin-right: 200px;
   font-weight: 600;
   font-size: small;
 }
@@ -87,5 +94,5 @@
 }
 
 .topPlayerCard__container_box-team-name {
-  margin: 10px 0px 0px 10px;
+  margin: 10px 0px 0px 1vw;
 }

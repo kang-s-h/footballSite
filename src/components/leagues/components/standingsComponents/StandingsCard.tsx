@@ -23,9 +23,9 @@ function StandingsCard({ isOverview }: { isOverview: boolean }) {
     <>
       {isLoading ? (
         isOverview ? (
-          <Skeletons width={610} height={1340} margin={20} borderRadius={20} />
+          <Skeletons width={"42vw"} height={1300} margin={"2vh 0vw 0px 1vw"} borderRadius={20} />
         ) : (
-          <Skeletons width={1250} height={1340} margin={20} borderRadius={20} />
+          <Skeletons width={"86vw"} height={1340} margin={"2vh 0px 0px 1vw"} borderRadius={20} />
         )
       ) : (
         <div className="common__boxCss">

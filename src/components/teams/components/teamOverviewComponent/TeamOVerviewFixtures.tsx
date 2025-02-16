@@ -19,7 +19,7 @@ function TeamOverviewFixtures() {
     <>
       {isLoading ? (
         <div className="teamOverview__fixtures">
-          <Skeletons width={600} height={600} borderRadius={20} margin={20} />
+          <Skeletons width={"42vw"} height={600} borderRadius={20} margin={20} />
         </div>
       ) : (
         <div className="teamOverview__fixtures common__boxCss">
@@ -30,10 +30,13 @@ function TeamOverviewFixtures() {
                 <div className="teamOverview__fixture_container_box-round" key={index}>{`${
                   fixture.league?.round?.replace(replaceRoundStr, "") ?? ""
                 } 라운드`}</div>
+
                 <img className="teamOverview__fixture_container_box-img" src={fixture?.teams?.home?.logo} />
 
                 <div className="teamOverview__fixture_container_box-score">
-                  {fixture?.score?.fulltime?.home} - {fixture?.score?.fulltime?.away}
+                  {fixture?.score?.fulltime?.home !== null
+                    ? `${fixture?.score?.fulltime?.home} - ${fixture?.score?.fulltime?.away}`
+                    : "경기중"}
                 </div>
                 <img className="teamOverview__fixture_container_box-img" src={fixture?.teams?.away?.logo} />
               </div>

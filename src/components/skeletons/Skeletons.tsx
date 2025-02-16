@@ -1,10 +1,10 @@
 import "./skeletons.css";
 
 interface SkeletonProps {
-  width: number;
+  width: number | string;
   height: number;
   borderRadius?: number;
-  margin?: number;
+  margin?: number | string;
 }
 
 function Skeletons({ width, height, borderRadius = 0, margin = 0 }: SkeletonProps) {

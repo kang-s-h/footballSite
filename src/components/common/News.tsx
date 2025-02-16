@@ -28,7 +28,7 @@ function News() {
       <div className="news">
         {loading
           ? Array.from({ length: displayCount }).map((_, index) => (
-              <Skeletons key={index} width={360} height={480} borderRadius={50} />
+              <Skeletons key={index} width={"calc(30%)"} height={480} borderRadius={50} />
             ))
           : news.slice(0, displayCount).map((newsData: NewsType, index: number) => (
               <div className="news_container_box" key={index}>
@@ -45,7 +45,7 @@ function News() {
 
         {loadingMore &&
           Array.from({ length: 6 }).map((_, index) => (
-            <Skeletons key={index} width={360} height={410} borderRadius={50} />
+            <Skeletons key={index} width={"calc(30%)"} height={480} borderRadius={50} />
           ))}
 
         {displayCount < news.length && !loadingMore && (

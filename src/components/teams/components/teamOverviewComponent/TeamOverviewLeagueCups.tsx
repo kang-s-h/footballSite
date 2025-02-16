@@ -17,7 +17,7 @@ function TeamLeagueCups() {
     <>
       {isLoading ? (
         <div className="teamOverview__leagueCup">
-          <Skeletons width={600} height={600} borderRadius={20} margin={20} />
+          <Skeletons width={"41vw"} height={600} borderRadius={20} margin={20} />
         </div>
       ) : (
         <div className="teamOverview__leagueCup common__boxCss">

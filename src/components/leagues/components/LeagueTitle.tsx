@@ -14,7 +14,7 @@ function LeagueTitle() {
   return (
     <>
       {isLoading ? (
-        <Skeletons width={1300} height={140} borderRadius={20} />
+        <Skeletons width={"88vw"} height={140} borderRadius={20} />
       ) : (
         <div className="league__title">
           <img className="league__title-img" src={standings?.flag} alt={standings?.flag} />

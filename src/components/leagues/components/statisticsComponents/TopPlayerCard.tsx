@@ -53,9 +53,9 @@ function TopPlayerCard({ title, info }: { title: string; info: string }) {
   return (
     <>
       {isLoading ? (
-        <Skeletons width={600} height={600} margin={20} borderRadius={20} />
+        <Skeletons width={"42vw"} height={600} margin={20} borderRadius={20} />
       ) : (
-        <div className={`${css} common__boxCss`}>
+        <div className={`${css} common__boxCss topPlayerCard-boxSize`}>
           <div className="topPlayerCard-title">{title}</div>
           <div className="topPlayerCard-title-info">{info}</div>
           <div className="topPlayerCard__container">

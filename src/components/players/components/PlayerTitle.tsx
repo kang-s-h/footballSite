@@ -17,7 +17,7 @@ function PlayerTitle() {
   return (
     <>
       {isLoading ? (
-        <Skeletons width={1280} height={160} borderRadius={20} />
+        <Skeletons width={"86vw"} height={160} margin={"3vh 0vw 0vh 1vw"} borderRadius={20} />
       ) : (
         <div className="common__boxCss player__profile">
           <img

@@ -25,7 +25,7 @@ export interface Data {
   playerTrophies: object[];
   navigate: NavigateFunction | null;
   setSelectedLeagueId: (league: number) => void;
-  fetchLeagueData: () => Promise<void>; //  API 호출 함수 추가
+  fetchLeagueData: () => Promise<void>;
   setDisplayCount: () => void;
   setNews: (newsData: object[]) => void;
   setSelectedTeamId: (team: number) => void;

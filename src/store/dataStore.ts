@@ -12,72 +12,6 @@ import { getNews } from "../apis/news";
 import { getPlayer, getPlayerTrophies } from "../apis/player";
 import { persist } from "zustand/middleware";
 import { Data, PlayerStatisticsType, TeamImgType } from "./types";
-// interface Data {
-//   selectedLeagueId: number;
-//   selectedTeamId: number;
-//   selectedPlayerId: number;
-//   nextFixtures: object[];
-//   lastFixtures: object[];
-//   standings: StandingsData | null;
-//   topPlayerGoals: object[];
-//   topPlayerAssists: object[];
-//   topPlayerYellowCards: object[];
-//   topPlayerRedCards: object[];
-//   news: object[];
-//   displayCount: number;
-//   teamLeagueCups: object[];
-//   teamStatistics: object[];
-//   teamFixtures: object[];
-//   teamSquad: object[];
-//   teamTransfer: object[];
-//   teamLastFixtures: object[];
-//   teamNextFixtures: object[];
-//   teamImg: object[];
-//   playerStatistics: object[];
-//   playerTrophies: object[];
-//   // isOverviewStandings: boolean;
-//   navigate: NavigateFunction | null;
-//   setSelectedLeagueId: (league: number) => void;
-//   fetchLeagueData: () => Promise<void>; //  API 호출 함수 추가
-//   setDisplayCount: () => void;
-//   setNews: (newsData: object[]) => void;
-//   setSelectedTeamId: (team: number) => void;
-//   fetchTeamData: () => Promise<void>;
-//   setSelectedPlayerId: (player: number) => void;
-//   fetchPlayerData: () => Promise<void>;
-//   setNavigate: (navigate: NavigateFunction) => void;
-//   moveTeamPage: (id: string) => void;
-//   movePlayerPage: (id: string) => void;
-//   // setIsOverviewStandings: (isOverview: boolean) => void;
-//   // setNextFixtures: () => void;
-//   // setLastFixtures: () => void;
-// }
-
-// interface StandingsData {
-//   standings: TeamType[][];
-// }
-
-// export interface TeamType {
-//   team?: {
-//     id?: string;
-//     logo?: string;
-//     name?: string;
-//   };
-//   rank?: number;
-//   all?: {
-//     played?: number;
-//     win?: number;
-//     draw?: number;
-//     lose?: number;
-//     goals?: {
-//       for?: number;
-//       against?: number;
-//     };
-//   };
-//   goalsDiff?: number;
-//   points?: number;
-//   form?: string;
-// }
 
 const leagues = [
   { name: "Premier League", id: 39, news: "eng.1" },
@@ -114,17 +48,17 @@ export const dataStore = create(
       playerTrophies: [],
       navigate: null,
       setSelectedLeagueId: (league) => {
-        const { selectedLeagueId } = get(); //  현재 리 그 ID 가져오기
-        if (selectedLeagueId === league) return; //  기존과 동일하면 API 호출 안 함
+        const { selectedLeagueId } = get();
+        if (selectedLeagueId === league) return;
 
         set({ selectedLeagueId: league, displayCount: 6 });
-        get().fetchLeagueData(); //  상태가 변경될 때만 API 호출
+        get().fetchLeagueData();
       },
 
       fetchLeagueData: async () => {
         try {
           const { selectedLeagueId } = get();
-          if (selectedLeagueId === 0) return; // 기본값이면 API 호출 안 함
+          if (selectedLeagueId === 0) return;
 
           const league = leagues.find((obj) => obj.id === selectedLeagueId);
           const newsId = league ? league.news : null;
@@ -168,16 +102,16 @@ export const dataStore = create(
       setNews: (newsData) => set({ news: newsData }),
 
       setSelectedTeamId: (team) => {
-        const { selectedTeamId } = get(); //  현재  ID 가져오기
-        if (selectedTeamId === team) return; //  기존과 동일하면 API 호출 안 함
+        const { selectedTeamId } = get();
+        if (selectedTeamId === team) return;
 
         set({ selectedTeamId: team });
-        get().fetchTeamData(); //  상태가 변경될 때만 API 호출
+        get().fetchTeamData();
       },
       fetchTeamData: async () => {
         try {
           const { selectedTeamId, selectedLeagueId } = get();
-          if (selectedTeamId === 0) return; // 기본값이면 API 호출 안 함
+          if (selectedTeamId === 0) return;
 
           const [
             teamLeagueCupsData,
@@ -214,8 +148,8 @@ export const dataStore = create(
         }
       },
       setSelectedPlayerId: (player) => {
-        const { selectedPlayerId } = get(); //  현재  ID 가져오기
-        if (selectedPlayerId === player) return; //  기존과 동일하면 API 호출 안 함
+        const { selectedPlayerId } = get();
+        if (selectedPlayerId === player) return;
 
         set({ selectedPlayerId: player });
         get().fetchPlayerData();

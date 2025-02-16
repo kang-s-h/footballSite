@@ -21,9 +21,9 @@ function FixturesCard({ title }: { title: string }) {
   return (
     <>
       {isLoading ? (
-        <Skeletons width={600} height={600} margin={20} borderRadius={20} />
+        <Skeletons width={"42vw"} height={1300} margin={"2vh 1vw 0px 1vw"} borderRadius={20} />
       ) : (
-        <div className="common__boxCss">
+        <div className="common__boxCss fixtures__boxsize">
           <div className="fixtures-title">{title}</div>
           <div className="fixtures">
             <div className="fixture_container">

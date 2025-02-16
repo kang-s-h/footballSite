@@ -15,7 +15,7 @@ function PlayerStatistics() {
   return (
     <>
       {isLoading ? (
-        <Skeletons width={1180} height={500} borderRadius={20} margin={20} />
+        <Skeletons width={"82.5vw"} height={500} borderRadius={20} margin={20} />
       ) : (
         <div className="player__statistics common__boxCss">
           <div className="player__statistics_title">통계</div>

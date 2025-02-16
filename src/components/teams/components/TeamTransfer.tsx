@@ -16,7 +16,7 @@ function TeamTransfer() {
       <div className="transfer_container">
         {isLoading
           ? Array.from({ length: 20 }).map((_, index) => (
-              <Skeletons key={index} width={1250} height={150} borderRadius={200} margin={20} />
+              <Skeletons key={index} width={"85.5vw"} height={150} borderRadius={200} margin={20} />
             ))
           : teamTransfer?.map((player: TeamTransferType, index) => (
               <div key={index} className="transfer_container_box">

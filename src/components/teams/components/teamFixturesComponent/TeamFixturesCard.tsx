@@ -23,7 +23,7 @@ function TeamFixturesCard({ title }: { title: string }) {
   return (
     <>
       {isLoading ? (
-        <Skeletons width={1220} height={660} borderRadius={20} margin={20} />
+        <Skeletons width={"85vw"} height={660} borderRadius={20} margin={"2vh 0vw 6vh 1vw"} />
       ) : (
         <>
           <div className="teamFixtures__Fixtures common__boxCss">
