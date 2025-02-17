@@ -2,7 +2,7 @@
   height: 100%;
   display: grid;
   grid-template-rows: 130px 1fr;
-  grid-template-columns: 4vw 88vw 8vw;
+  grid-template-columns: 6vw 88vw 6vw;
   justify-content: center;
 }
 
@@ -80,4 +80,41 @@
   background-color: rgb(255, 241, 115);
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.2);
   line-height: 50px;
+}
+
+@media (max-width: 1280px) {
+  .pageLocation {
+    width: 5vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .selectLeague {
+    grid-template-columns: 1vw 98vw 1vw;
+  }
+
+  .selectLeague_navigateBar:hover .dropdown {
+    flex-direction: column;
+  }
+
+  .dropdown {
+    position: absolute;
+    left: -20%;
+  }
+
+  .pageLocation {
+    width: 6vw;
+  }
+}
+
+@media (max-width: 770px) {
+  .pageLocation {
+    width: 10vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageLocation {
+    width: 14vw;
+  }
 }

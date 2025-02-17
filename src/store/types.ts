@@ -111,6 +111,7 @@ export interface NewsType {
   published?: string;
   images?: { url: string }[];
 }
+
 export interface PlayerStatisticEntry {
   league?: {
     id?: number;

@@ -1,3 +1,11 @@
+.overviewStandings-boxsize {
+  width: 40vw;
+}
+
+.standings-boxsize {
+  width: 84vw;
+}
+
 .standings_table {
   width: 90%;
   text-align: center;
@@ -68,4 +76,10 @@
 .standings_table-form-container-loss {
   background-color: rgb(255, 0, 0);
   color: white;
+}
+
+@media (max-width: 1480px) {
+  .overviewStandings-boxsize {
+    width: 88vw;
+  }
 }

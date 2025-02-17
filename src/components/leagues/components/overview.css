@@ -1,4 +1,13 @@
 .overview {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  width: 88vw;
+}
+
+@media (max-width: 1480px) {
+  .overview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

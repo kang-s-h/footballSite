@@ -22,3 +22,11 @@
     transform: translateX(100%);
   }
 }
+
+@media (max-width: 1480px) {
+  .skeletons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

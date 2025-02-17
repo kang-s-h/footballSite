@@ -12,9 +12,9 @@ function Standings() {
   }, [navigateTeamPage, setNavigate]);
 
   return (
-    <>
+    <div className="leagueStanding-boxsize">
       <StandingsCard isOverview={false} />
-    </>
+    </div>
   );
 }
 export default Standings;

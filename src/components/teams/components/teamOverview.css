@@ -4,3 +4,10 @@
   grid-template-columns: repeat(2, 1fr);
   align-items: start;
 }
+
+@media (max-width: 950px) {
+  .teamOverview {
+    display: flex;
+    flex-direction: column;
+  }
+}

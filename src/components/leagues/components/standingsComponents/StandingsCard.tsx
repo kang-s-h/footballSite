@@ -28,7 +28,7 @@ function StandingsCard({ isOverview }: { isOverview: boolean }) {
           <Skeletons width={"86vw"} height={1340} margin={"2vh 0px 0px 1vw"} borderRadius={20} />
         )
       ) : (
-        <div className="common__boxCss">
+        <div className={isOverview ? `common__boxCss overviewStandings-boxsize` : "common__boxCss standings-boxsize"}>
           <table className="standings_table">
             <thead>
               <tr>

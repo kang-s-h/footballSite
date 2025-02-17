@@ -27,3 +27,23 @@
   justify-content: space-evenly;
   margin-left: 10px;
 }
+
+@media (max-width: 770px) {
+  .team__title-text-name {
+    font-size: 30px;
+  }
+
+  .team__title-text-country {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team__title-text-name {
+    font-size: 15px;
+  }
+
+  .team__title-text-country {
+    font-size: 10px;
+  }
+}

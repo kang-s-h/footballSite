@@ -1,5 +1,6 @@
 .teamFixtures__Fixtures {
   margin-bottom: 50px;
+  width: 85vw;
 }
 
 .teamFixtures__Fixtures-title {
@@ -51,8 +52,64 @@
 .teamFixture_container_box-score {
   box-sizing: border-box;
   margin: 0px 30px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.teamFixture_container_box-date {
+  min-width: 90px;
+  text-align: center;
 }
 
 .right-name {
   text-align: end;
+}
+
+@media (max-width: 1400px) {
+  .teamFixtures__Fixtures-title {
+    width: 20vw;
+  }
+
+  .teamFixture_container_box-name {
+    white-space: wrap;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 900px) {
+  .teamFixtures__Fixtures {
+    font-size: small;
+  }
+
+  .teamFixtures__Fixtures-title {
+    width: 20vw;
+  }
+
+  .teamFixture_container_box-score {
+    margin: 0px;
+  }
+
+  .teamFixture_container_box-logoImg {
+    width: 0px;
+    height: 0px;
+    border: 0px;
+  }
+}
+
+@media (max-width: 650px) {
+  .teamFixture_container_box-name {
+    width: 0px;
+    height: 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  .teamFixture_container_box-round {
+    font-size: 0%;
+    margin: 0px;
+  }
+
+  .teamFixture_container_box {
+    gap: 00px;
+  }
 }

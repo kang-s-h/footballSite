@@ -1,3 +1,10 @@
 .fixtures {
   display: flex;
 }
+
+@media (max-width: 1480px) {
+  .fixtures {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

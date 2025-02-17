@@ -18,8 +18,14 @@ function TeamOverviewFixtures() {
   return (
     <>
       {isLoading ? (
-        <div className="teamOverview__fixtures">
-          <Skeletons width={"42vw"} height={600} borderRadius={20} margin={20} />
+        <div>
+          <Skeletons
+            className={"teamOverview__fixtures-media"}
+            width={undefined}
+            height={600}
+            borderRadius={20}
+            margin={20}
+          />
         </div>
       ) : (
         <div className="teamOverview__fixtures common__boxCss">

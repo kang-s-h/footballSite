@@ -1,10 +1,5 @@
 .fixtures__boxsize {
-  width: 40vw;
-}
-
-.fixtures {
-  display: flex;
-  justify-content: center;
+  min-width: 610px;
 }
 
 .fixtures-title {
@@ -19,6 +14,11 @@
   text-align: center;
 }
 
+.fixtures {
+  display: flex;
+  justify-content: center;
+}
+
 .fixture_container_box {
   display: flex;
   flex: row;
@@ -28,6 +28,7 @@
   border-top: 1px solid rgb(186, 182, 182);
   justify-content: center;
   width: 35vw;
+  min-width: 580px;
 }
 
 .fixture_container_box-round {
@@ -49,9 +50,64 @@
 .fixture_container_box-score {
   box-sizing: border-box;
   margin: 0px 5px 5px 0px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.fixture_container_box-date {
+  min-width: 90px;
 }
 
 .fixture_container_box-name:hover {
   font-weight: bold;
   cursor: pointer;
+}
+
+@media (max-width: 1480px) {
+  .fixtures__boxsize {
+    width: 88vw;
+  }
+
+  .fixture_container_box {
+    width: 80vw;
+    gap: 4vw;
+  }
+}
+
+@media (max-width: 1310px) {
+  .fixtures-title {
+    width: 20vw;
+  }
+}
+
+@media (max-width: 690px) {
+  .fixtures__boxsize {
+    width: 95vw;
+  }
+
+  .fixture_container_box-name {
+    font-size: 0%;
+  }
+
+  .fixtures__boxsize {
+    min-width: 0px;
+  }
+
+  .fixture_container_box {
+    min-width: 0px;
+  }
+
+  .fixture_container_box-round {
+    font-size: 0%;
+  }
+}
+
+@media (max-width: 480px) {
+  .fixtures-title {
+    font-size: small;
+  }
+
+  .fixture_container_box {
+    width: 40vw;
+  }
 }

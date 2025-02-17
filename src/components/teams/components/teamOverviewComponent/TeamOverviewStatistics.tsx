@@ -18,7 +18,7 @@ function TeamOverviewStatistics() {
     <>
       {isLoading ? (
         <div className="teamOverview__statistics">
-          <Skeletons width={"86vw"} height={160} borderRadius={20} margin={20} />
+          <Skeletons width={"84vw"} height={160} borderRadius={20} margin={20} />
         </div>
       ) : (
         <div className="teamOverview__statistics common__boxCss">

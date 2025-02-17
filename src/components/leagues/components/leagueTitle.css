@@ -7,7 +7,7 @@
 }
 
 .league__title-img {
-  width: 8vw;
+  width: 120px;
   border: 5px solid rgb(209, 209, 209);
 }
 
@@ -25,4 +25,29 @@
   flex-direction: column;
   justify-content: space-evenly;
   margin-left: 10px;
+}
+
+@media (max-width: 770px) {
+  .league__title-text-name {
+    font-size: 30px;
+  }
+
+  .league__title-text-country {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .league__title-text-name {
+    font-size: 15px;
+  }
+
+  .league__title-text-country {
+    font-size: 10px;
+  }
+
+  .league__title-img {
+    width: 70px;
+    border: 0px;
+  }
 }

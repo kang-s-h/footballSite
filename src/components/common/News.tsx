@@ -12,7 +12,7 @@ function News() {
   const [loadingMore, setLoadingMore] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3000);
+    setTimeout(() => setLoading(false), 4000);
   }, [news]);
 
   function handleClickMore() {
@@ -20,7 +20,7 @@ function News() {
     setTimeout(() => {
       setDisplayCount();
       setLoadingMore(false);
-    }, 3000);
+    }, 4000);
   }
 
   return (
@@ -28,7 +28,7 @@ function News() {
       <div className="news">
         {loading
           ? Array.from({ length: displayCount }).map((_, index) => (
-              <Skeletons key={index} width={"calc(30%)"} height={480} borderRadius={50} />
+              <Skeletons className={`news-media`} key={index} width={undefined} height={480} borderRadius={50} />
             ))
           : news.slice(0, displayCount).map((newsData: NewsType, index: number) => (
               <div className="news_container_box" key={index}>

@@ -46,3 +46,17 @@
   padding: 10px 10px;
   border-radius: 20px;
 }
+
+.teamOverview__leagueCup-media {
+  width: 42vw;
+}
+
+@media (max-width: 950px) {
+  .teamOverview__leagueCup {
+    width: 85vw;
+  }
+
+  .teamOverview__leagueCup-media {
+    width: 85vw;
+  }
+}
