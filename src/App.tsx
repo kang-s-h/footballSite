@@ -20,10 +20,10 @@ function App() {
     { name: "Ligue 1", id: 61 },
     { name: "Serie A", id: 135 },
   ];
-
+  // uefa.champions
   useEffect(() => {
     async function fetchData() {
-      const getNewsData = await getNews("eng.1");
+      const getNewsData = await getNews("uefa.champions");
       setNews(getNewsData?.articles);
     }
     fetchData();

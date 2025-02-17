@@ -64,36 +64,23 @@ export const dataStore = create(
           const newsId = league ? league.news : null;
 
           if (!newsId) return;
-          const [
-            standingsData,
-            nextFixturesData,
-            lastFixturesData,
-            topPlayerGoalsData,
-            topPlayerAssistsData,
-            topPlayerYellowCardsData,
-            topPlayerRedCardsData,
-            newsData,
-          ] = await Promise.all([
-            getStandings({ league: selectedLeagueId, season: 2024 }),
-            getFixtures({ league: selectedLeagueId, season: 2024, next: 20, timezone: "Asia%2FSeoul" }),
-            getFixtures({ league: selectedLeagueId, season: 2024, last: 20, timezone: "Asia%2FSeoul" }),
-            getTopPlayer({ league: selectedLeagueId, season: 2024 }),
-            getTopAssists({ league: selectedLeagueId, season: 2024 }),
-            getTopYellowCards({ league: selectedLeagueId, season: 2024 }),
-            getTopRedCards({ league: selectedLeagueId, season: 2024 }),
-            getNews(newsId),
-          ]);
 
-          set({
-            standings: standingsData[0].league,
-            nextFixtures: nextFixturesData,
-            lastFixtures: lastFixturesData,
-            topPlayerGoals: topPlayerGoalsData,
-            topPlayerAssists: topPlayerAssistsData,
-            topPlayerYellowCards: topPlayerYellowCardsData,
-            topPlayerRedCards: topPlayerRedCardsData,
-            news: newsData.articles || [],
-          });
+          const standingsData = await getStandings({ league: selectedLeagueId, season: 2024 });
+          const nextFixturesData = await getFixtures({ league: selectedLeagueId, season: 2024, next: 20 });
+          const lastFixturesData = await getFixtures({ league: selectedLeagueId, season: 2024, last: 20 });
+          const newsData = await getNews(newsId);
+
+          set({ standings: standingsData[0]?.league || null });
+          set({ nextFixtures: nextFixturesData });
+          set({ lastFixtures: lastFixturesData });
+          set({ news: newsData.articles || [] });
+
+          getTopPlayer({ league: selectedLeagueId, season: 2024 }).then((data) => set({ topPlayerGoals: data }));
+          getTopAssists({ league: selectedLeagueId, season: 2024 }).then((data) => set({ topPlayerAssists: data }));
+          getTopYellowCards({ league: selectedLeagueId, season: 2024 }).then((data) =>
+            set({ topPlayerYellowCards: data })
+          );
+          getTopRedCards({ league: selectedLeagueId, season: 2024 }).then((data) => set({ topPlayerRedCards: data }));
         } catch (error) {
           console.error("API 요청 중 오류 발생:", error);
         }
@@ -113,40 +100,30 @@ export const dataStore = create(
           const { selectedTeamId, selectedLeagueId } = get();
           if (selectedTeamId === 0) return;
 
-          const [
-            teamLeagueCupsData,
-            teamStatisticsData,
-            teamFixturesData,
-            teamSquadData,
-            teamTransferData,
-            teamLastFixturesData,
-            teamNextFixturesData,
-            teamImgData,
-          ] = await Promise.all([
-            getTeamLeagueCup({ season: 2024, team: selectedTeamId }),
-            getStandings({ league: selectedLeagueId, season: 2024, team: selectedTeamId }),
-            getFixtures({ season: 2024, team: selectedTeamId, last: 10 }),
-            getTeamSquad({ team: selectedTeamId }),
-            getTeamTransfer({ team: selectedTeamId }),
-            getFixtures({ season: 2024, team: selectedTeamId, last: 5 }),
-            getFixtures({ season: 2024, team: selectedTeamId, next: 5 }),
-            getTeamImg({ league: selectedLeagueId, season: 2024, team: selectedTeamId }),
-          ]);
-
-          set({
-            teamLeagueCups: teamLeagueCupsData,
-            teamStatistics: teamStatisticsData,
-            teamFixtures: teamFixturesData,
-            teamSquad: teamSquadData?.[0]?.players,
-            teamTransfer: teamTransferData,
-            teamLastFixtures: teamLastFixturesData,
-            teamNextFixtures: teamNextFixturesData,
-            teamImg: teamImgData,
+          const teamLeagueCupsData = await getTeamLeagueCup({ season: 2024, team: selectedTeamId });
+          const teamStatisticsData = await getStandings({
+            league: selectedLeagueId,
+            season: 2024,
+            team: selectedTeamId,
           });
+          const teamFixturesData = await getFixtures({ season: 2024, team: selectedTeamId, last: 10 });
+
+          set({ teamLeagueCups: teamLeagueCupsData });
+          set({ teamStatistics: teamStatisticsData });
+          set({ teamFixtures: teamFixturesData });
+
+          getTeamSquad({ team: selectedTeamId }).then((data) => set({ teamSquad: data?.[0]?.players || [] }));
+          getTeamTransfer({ team: selectedTeamId }).then((data) => set({ teamTransfer: data }));
+          getFixtures({ season: 2024, team: selectedTeamId, last: 5 }).then((data) => set({ teamLastFixtures: data }));
+          getFixtures({ season: 2024, team: selectedTeamId, next: 5 }).then((data) => set({ teamNextFixtures: data }));
+          getTeamImg({ league: selectedLeagueId, season: 2024, team: selectedTeamId }).then((data) =>
+            set({ teamImg: data })
+          );
         } catch (error) {
           console.error("API 요청 중 오류 발생:", error);
         }
       },
+
       setSelectedPlayerId: (player) => {
         const { selectedPlayerId } = get();
         if (selectedPlayerId === player) return;
