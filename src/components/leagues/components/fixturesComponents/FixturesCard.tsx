@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Skeletons from "../../../skeletons/Skeletons";
 import "../../../commonStyle.css";
 import { FixtureType } from "../../../../store/types";
+
 function FixturesCard({ title }: { title: string }) {
   const { lastFixtures, nextFixtures, moveTeamPage } = dataStore();
   const { replaceRoundStr } = regExpStore();

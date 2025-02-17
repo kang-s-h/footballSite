@@ -3,6 +3,7 @@ import { dataStore } from "../../../store/dataStore";
 import { useState, useEffect } from "react";
 import Skeletons from "../../skeletons/Skeletons";
 import { TeamTransferType } from "../../../store/types";
+
 function TeamTransfer() {
   const { teamTransfer } = dataStore();
   const [isLoading, setIsLoading] = useState(true);

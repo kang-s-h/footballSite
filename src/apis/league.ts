@@ -1,5 +1,6 @@
 import { QueryParams } from "../store/types";
 import { fetchApi } from "./apisConfig";
+
 export function getStandings(queryParams: QueryParams) {
   const endpoint = `/v3/standings`;
   return fetchApi(endpoint, queryParams);
