@@ -1,50 +1,34 @@
-# React + TypeScript + Vite
+# 📌 footballSite  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 세계의 많은 축구 리그 중 최상위권인 **유럽 5대 리그**의 다양한 정보를 제공하는 웹사이트입니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌍 사이트 링크  
 
-## Expanding the ESLint configuration
+🔗 **[footballSite 바로 가기](https://kang-s-h.github.io/footballSite/)**  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## 📸 UI & 🚀 Features  
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 🏠 시작 페이지  
+![image](https://github.com/user-attachments/assets/243997a0-98e5-43b2-bed1-1fa229d2d840)  
+> **5대 리그로 이동할 수 있는 네비게이션 바**와 **챔피언스 리그 뉴스**를 조회할 수 있습니다.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 🏆 리그 페이지  
+![image](https://github.com/user-attachments/assets/f127d200-db3f-4aba-9ef9-bd5dbecae354)  
+> 각 리그의 **순위, 경기 일정, 통계, 뉴스**를 조회할 수 있습니다.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 🏟 팀 페이지  
+![image](https://github.com/user-attachments/assets/62b92303-f7f2-43bf-806c-6c7e95a1c92b)  
+> 각 팀의 **성적, 참여 대회, 스쿼드, 이적 기록, 경기 일정** 등을 확인할 수 있습니다.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### 👤 선수 페이지  
+![image](https://github.com/user-attachments/assets/c6c18214-64a6-4c33-9ec5-00e68fffc267)  
+> 선수의 **프로필, 이번 시즌 기록, 수상 내역**을 조회할 수 있습니다.
+
+---
+
+## 🛠️ 기술 스택  
+- **Frontend**: React, HTML, CSS, JavaScript, Zustand 등  
